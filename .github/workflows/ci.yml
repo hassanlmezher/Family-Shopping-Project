@@ -1,47 +1,35 @@
-name: CI (start with pm2)
+name : full stack CI
+on:
+    pull_request:
+        branches: [ main ]
+jobs:
+    ci-test:
+        timeout-minutes: 10
+        runs-on: ubuntu-latest
+        steps:
+          - name: Checkout code
+            uses: actions/checkout@v4.0.0
+                
+          - name: intall the backend dependencies
+            run : |
+                cd backend 
+                npm i 
+                cd ..
 
-on: 
-  push: 
-    branches: [ main, master ]
-  pull_request:
-    branches: [ main, master ]
+          - name: intall the frontend dependencies
+            run : |
+                cd frontend 
+                npm i 
+                cd ..
 
-jobs: 
-  test-and-run: 
-    runs-on: ubunto-latest
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
+          - name: Install PM2 globally
+            run : npm i --global pm2
 
-      - name: Use Node.js 20
-        uses: actions/setup-node@v4
-        with:
-          node-version: '20'
-          cache: 'npm'
-        
-      - name: Install dependencies
-        run: npm ci
+          - name: run backend
+            run : 
 
-      - name: Install pm2 globally
-        run: npm install -g pm2
-
-      - name: Start backend with pm2
-
-        run: 
-          pm2 start npm --name "backend" --start
-          sleep 3
-          pm2 status
-
-      - name: Run integration tests
-        run: |
-          npm test
-
-      - name: Collect pm2 logs (optional)
-        if: failure()
-        run: |
-          pm2 logs --lines 200
-        
-      - name: Stop pm2 
-        if: always()
-        run: |
-          pm2 delete all || true
+          - name: test backend status
+            run : |
+                cd backend
+                npm i
+                pm2 start src/server.j
