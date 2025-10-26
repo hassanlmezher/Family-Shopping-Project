@@ -9,12 +9,16 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: install backend dependencies
+        env: 
+          DATABASE_URL: ${{ secrets.DATABASE_URL }}
         run: |
           cd backend
-          npm i
+          pm2 start server.js
 
       - name: install frontend dependencies
+
         run: |
           cd frontend
-          npm i 
-    
+          npm i
+          cd .. 
+      
