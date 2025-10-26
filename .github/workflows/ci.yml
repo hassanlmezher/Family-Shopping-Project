@@ -32,4 +32,4 @@ jobs:
             run : |
                 cd backend
                 npm i
-                pm2 start src/server.j
+                pm2 start src/server.js
