@@ -18,6 +18,7 @@ jobs:
 
       - name: intall the frontend dependencies
         run: |
+          cd ..
           cd frontend 
           npm i 
           cd ..
