@@ -39,10 +39,10 @@ export default function App() {
 
   return (
     <div className={outerWrap}>
-      <div className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(circle_at_10%_0%,rgba(139,92,246,0.18),transparent_55%),radial-gradient(circle_at_90%_0%,rgba(59,130,246,0.18),transparent_55%)] dark:bg-[radial-gradient(circle_at_10%_0%,rgba(168,85,247,0.28),transparent_60%),radial-gradient(circle_at_90%_0%,rgba(14,165,233,0.22),transparent_55%)]" />
+      <div className="pointer-events-none absolute inset-0 -z-10 bg-linear-to-br from-cyan-50 to-purple-50 dark:from-cyan-950 dark:to-purple-950" />
       <Header />
       <div className={mainWrap}>
-        <div className="pointer-events-none absolute inset-0 -z-10 rounded-[3rem] bg-white/40 blur-3xl dark:bg-slate-900/30" />
+        <div className="pointer-events-none absolute inset-0 -z-10 rounded-[3rem] bg-white/20 dark:bg-slate-900/20" />
         {view === 'login' && <AuthLogin onSignup={() => go('signup')} />}
         {view === 'signup' && <AuthSignup onLogin={() => go('login')} />}
         {view === 'welcome' && <WelcomeJoinCreate />}

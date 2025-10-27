@@ -22,8 +22,7 @@ export default function AuthSignup({ onLogin }: { onLogin: () => void }) {
 
   return (
     <div className="w-full max-w-2xl mx-auto px-4 py-5">
-      <div className="relative overflow-hidden rounded-3xl border border-white/15 bg-linear-to-br from-slate-950 via-purple-950 to-slate-950 shadow-[0_40px_80px_-40px_rgba(168,85,247,0.4)]">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(168,85,247,0.25),transparent_55%)] opacity-80" />
+      <div className="relative overflow-hidden rounded-3xl border border-white/20 bg-linear-to-br from-cyan-900 to-purple-900 shadow-lg">
         <div className="relative z-10 px-5 py-5 sm:px-7 sm:py-7 space-y-4">
           <header className="text-center space-y-2">
             <div className="mx-auto inline-flex h-11 w-11 items-center justify-center rounded-2xl bg-linear-to-r from-blue-400 via-cyan-400 to-indigo-500 shadow-lg shadow-violet-500/40">
